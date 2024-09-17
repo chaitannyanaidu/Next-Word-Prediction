@@ -16,71 +16,72 @@ Demonstrated proficiency in deep learning techniques and model deployment for te
 
 
 
+# 1. Data Preprocessing
 
+- Tokenization: Split the input text into individual words (tokens).
+- Vocabulary Creation: Build a vocabulary of unique words and assign a numerical ID to each word.
+- Text Vectorization: Convert text into numerical sequences using word IDs.
+- Padding: Ensure all sequences have equal length by adding padding tokens (usually zeros).
 
-Here's a breakdown of the algorithm for using bidirectional LSTM in next word prediction:
-1. Data Preprocessing:
--	Tokenization: Split text into individual words (tokens).
+## 2. Model Architecture
+
+### Bidirectional LSTM Layer
+
+- Processes input sequences in both forward and backward directions.
+- Each direction has its own LSTM layer.
+- Captures contextual information from both past and future words.
+
+### Concatenation Layer
+
+- Combines outputs from forward and backward LSTM layers.
+- Creates a more comprehensive representation of the sentence.
+
+### Dense Output Layer
+
+- Maps the concatenated output to the size of the vocabulary.
+- Produces a probability distribution over the possible next words.
+
+## 3. Model Training
+
+- Input: Sequences of words, where the last word is masked as the target for prediction.
   
--	Vocabulary Creation: Build a vocabulary of unique words and assign each word a numerical ID.
+### Forward Pass
+
+- The Bidirectional LSTM processes the sequence in both directions.
+- The concatenated output is fed to the dense layer for prediction.
+
+### Loss Calculation
+
+- The model compares the predicted probabilities with the actual next word using a loss function (e.g., categorical cross-entropy).
+
+### Backpropagation
+
+- Adjusts the model weights to minimize the prediction error.
+
+## 4. Prediction
+
+- Input: A partial sentence (sequence of words).
   
--	Text Vectorization: Transform text into numerical sequences using word IDs.
-  
--	Padding: Ensure sequences have equal length by adding padding tokens (usually zeros).
-  
-2. Model Architecture:
-●Bidirectional LSTM Layer:
+### Forward Pass
 
--	Processes input sequences in both forward and backward directions.
+- The model processes the input sequence to predict the next word.
 
--	Each direction has its own LSTM layer.
+### Output
 
--	Captures contextual information from both past and future words.
+- Produces a probability distribution over the possible next words.
 
-●	Concatenation Layer:
+### Word Selection
 
--	Combines outputs from forward and backward LSTM layers.
+- Select the word with the highest probability or sample from the distribution.
 
--	Creates a more comprehensive representation of the sentence.
+## Key Points
 
-●	Dense Output Layer:
+- Bidirectional LSTM: Captures both past and future context, improving prediction accuracy.
+- Training: Involves iteratively adjusting model weights to minimize prediction errors.
+- Prediction: Generates a probability distribution over possible next words based on input sequences.
 
--	Applies a final transformation to map the concatenated output to the vocabulary size.
 
--	Produces a probability distribution over possible next words.
 
-4. Model Training:
-●	Input: Sequences of words, where the last word is masked (target to predict).
 
-●	Forward Pass:
 
--	Bidirectional LSTM processes the sequence in both directions.
 
--	Concatenated output is fed to the dense output layer.
-
-●	Loss Calculation:
-
--	Compare predicted probabilities with actual next word using a loss function (e.g., categorical cross-entropy).
-
-●	Backpropagation:
-
--	Adjust model weights to minimize the loss.
-
-6. Prediction:
-●	Input: A partial sentence (sequence of words).
-
-●	Forward Pass:
-
--	Model processes the input sequence.
-
-●	Output: Probability distribution over possible next words.
-
-●	Selection:
-
--	Choose the word with the highest probability or sample from the distribution.
-
-●	Bidirectional LSTMs capture both past and future context for more accurate predictions.
-
-●	Training involves iteratively adjusting weights to minimize prediction errors.
-
-●	Prediction involves generating a probability distribution over possible next words.
