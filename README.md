@@ -80,6 +80,13 @@ Demonstrated proficiency in deep learning techniques and model deployment for te
 - Training: Involves iteratively adjusting model weights to minimize prediction errors.
 - Prediction: Generates a probability distribution over possible next words based on input sequences.
 
+## results
+
+![image](https://github.com/user-attachments/assets/ca333f42-75af-4e8b-82bf-e9ad6a099e5c)
+
+
+![image](https://github.com/user-attachments/assets/33401365-d56d-4401-94bc-b14dd15074b7)
+
 
 
 
